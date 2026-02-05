@@ -1,34 +1,38 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Mountain, Facebook, Instagram, Linkedin } from "lucide-react";
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const services = [
-    { name: "Roof Repair", path: "/services#repair" },
-    { name: "Roof Replacement", path: "/services#replacement" },
-    { name: "Roof Inspections", path: "/services#inspections" },
-    { name: "Storm Damage", path: "/services#storm-damage" },
-    { name: "Commercial Roofing", path: "/services#commercial" },
-  ];
-
-  const company = [
-    { name: "About Us", path: "/about" },
-    { name: "Our Services", path: "/services" },
-    { name: "Contact", path: "/contact" },
-    { name: "Free Estimate", path: "/contact" },
-  ];
-
-  const serviceAreas = [
-    "Metro City",
-    "Riverside County",
-    "Oak Valley",
-    "Summit Heights",
-    "Lakeside Township",
-  ];
-
-  return (
-    <footer className="bg-primary text-primary-foreground">
+  const services = [{
+    name: "Roof Repair",
+    path: "/services#repair"
+  }, {
+    name: "Roof Replacement",
+    path: "/services#replacement"
+  }, {
+    name: "Roof Inspections",
+    path: "/services#inspections"
+  }, {
+    name: "Storm Damage",
+    path: "/services#storm-damage"
+  }, {
+    name: "Commercial Roofing",
+    path: "/services#commercial"
+  }];
+  const company = [{
+    name: "About Us",
+    path: "/about"
+  }, {
+    name: "Our Services",
+    path: "/services"
+  }, {
+    name: "Contact",
+    path: "/contact"
+  }, {
+    name: "Free Estimate",
+    path: "/contact"
+  }];
+  const serviceAreas = ["Metro City", "Riverside County", "Oak Valley", "Summit Heights", "Lakeside Township"];
+  return <footer className="bg-primary text-primary-foreground">
       {/* Main Footer */}
       <div className="section-container py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -49,25 +53,13 @@ const Footer = () => {
               Your trusted local roofing experts. Licensed, insured, and committed to quality craftsmanship on every project.
             </p>
             <div className="flex gap-4">
-              <a
-                href="#"
-                className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
-                aria-label="Facebook"
-              >
+              <a href="#" className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors" aria-label="Facebook">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a
-                href="#"
-                className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
-                aria-label="Instagram"
-              >
+              <a href="#" className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors" aria-label="Instagram">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a
-                href="#"
-                className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
-                aria-label="LinkedIn"
-              >
+              <a href="#" className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors" aria-label="LinkedIn">
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
@@ -75,41 +67,31 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Services</h4>
+            <h4 className="font-bold text-lg mb-4 text-primary-foreground">Services</h4>
             <ul className="space-y-2">
-              {services.map((service) => (
-                <li key={service.name}>
-                  <Link
-                    to={service.path}
-                    className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
-                  >
+              {services.map(service => <li key={service.name}>
+                  <Link to={service.path} className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
                     {service.name}
                   </Link>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
           {/* Company */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Company</h4>
+            <h4 className="font-bold text-lg mb-4 text-primary-foreground">Company</h4>
             <ul className="space-y-2">
-              {company.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    to={item.path}
-                    className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
-                  >
+              {company.map(item => <li key={item.name}>
+                  <Link to={item.path} className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
                     {item.name}
                   </Link>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
           {/* Contact & Service Areas */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Contact Us</h4>
+            <h4 className="font-bold text-lg mb-4 text-primary-foreground">Contact Us</h4>
             <div className="space-y-3 mb-6">
               <a href="tel:+15551234567" className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                 <Phone className="h-4 w-4 flex-shrink-0" />
@@ -124,7 +106,7 @@ const Footer = () => {
                 <span>Serving the greater metro area and surrounding communities</span>
               </div>
             </div>
-            <h5 className="font-semibold text-sm mb-2">Service Areas</h5>
+            <h5 className="font-semibold text-sm mb-2 text-primary-foreground">Service Areas</h5>
             <p className="text-xs text-primary-foreground/70">
               {serviceAreas.join(" • ")}
             </p>
@@ -141,8 +123,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
