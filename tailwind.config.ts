@@ -57,33 +57,70 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Custom roofing brand colors
+        navy: {
+          DEFAULT: "hsl(var(--navy))",
+          dark: "hsl(var(--navy-dark))",
+          light: "hsl(var(--navy-light))",
+        },
+        slate: {
+          dark: "hsl(var(--slate-dark))",
+          DEFAULT: "hsl(var(--slate))",
+          light: "hsl(var(--slate-light))",
+        },
+        "red-accent": {
+          DEFAULT: "hsl(var(--red-accent))",
+          hover: "hsl(var(--red-accent-hover))",
+        },
+        gold: "hsl(var(--gold))",
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontFamily: {
+        sans: ["Inter", "system-ui", "sans-serif"],
+        heading: ["Inter", "system-ui", "sans-serif"],
+      },
+      fontSize: {
+        "display-xl": ["4.5rem", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
+        "display-lg": ["3.75rem", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
+        "display-md": ["3rem", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
+        "display-sm": ["2.25rem", { lineHeight: "1.25", letterSpacing: "-0.01em" }],
+      },
+      boxShadow: {
+        card: "var(--shadow-card)",
+        cta: "var(--shadow-cta)",
+      },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "fade-in": {
+          from: { opacity: "0", transform: "translateY(10px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "slide-in-right": {
+          from: { opacity: "0", transform: "translateX(20px)" },
+          to: { opacity: "1", transform: "translateX(0)" },
+        },
+        "pulse-soft": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.8" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.5s ease-out forwards",
+        "slide-in-right": "slide-in-right 0.5s ease-out forwards",
+        "pulse-soft": "pulse-soft 2s ease-in-out infinite",
       },
     },
   },
