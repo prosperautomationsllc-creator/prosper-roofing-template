@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Shield, Clock, Star, Wrench, Home, Search, CloudLightning, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-roofing.jpg";
+import heroImage from "@/assets/hero-roofing.webp";
 const HeroSection = () => {
   const trustBadges = [{
     icon: Shield,
