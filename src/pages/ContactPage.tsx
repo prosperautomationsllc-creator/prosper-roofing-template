@@ -1,17 +1,28 @@
 import { useState } from "react";
 import { Phone, Mail, MapPin, Clock, CheckCircle } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-const serviceTypes = ["Roof Repair", "Roof Replacement", "Roof Inspection", "Storm Damage Assessment", "Commercial Roofing", "Preventative Maintenance", "Other"];
+
+const serviceTypes = [
+  "Roof Repair",
+  "Roof Replacement",
+  "Roof Inspection",
+  "Storm Damage Assessment",
+  "Commercial Roofing",
+  "Preventative Maintenance",
+  "Other"
+];
+
 const ContactPage = () => {
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
+
   const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
@@ -20,43 +31,95 @@ const ContactPage = () => {
     serviceType: "",
     message: ""
   });
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const {
-      name,
-      value
-    } = e.target;
-    setFormData(prev => ({
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
       ...prev,
       [name]: value
     }));
   };
+
   const handleSelectChange = (value: string) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       serviceType: value
     }));
   };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    toast({
-      title: "Request Submitted!",
-      description: "We'll contact you within 24 hours to schedule your free estimate."
-    });
-    setFormData({
-      fullName: "",
-      phone: "",
-      email: "",
-      address: "",
-      serviceType: "",
-      message: ""
-    });
-    setIsSubmitting(false);
+    console.log("FORM DATA:", formData);
+
+    if (!formData.fullName || !formData.email) {
+      toast({
+        variant: "destructive",
+        title: "Missing required fields",
+        description: "Please fill in your name and email."
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const { error } = await supabase
+        .from("contacts")
+        .insert([
+          {
+            full_name: formData.fullName.trim(),
+            phone_number: formData.phone.trim(),
+            email_address: formData.email.trim(),
+            property_address: formData.address.trim(),
+            service_type: formData.serviceType || null,
+            additional_details: formData.message.trim() || null
+          }
+        ]);
+
+      if (error) {
+        console.log("Supabase error:", error);
+
+        toast({
+          variant: "destructive",
+          title: "Could not send your request",
+          description: error.message
+        });
+
+        return;
+      }
+
+      toast({
+        title: "Request Submitted!",
+        description:
+          "We'll contact you within 24 hours to schedule your free estimate."
+      });
+
+      setFormData({
+        fullName: "",
+        phone: "",
+        email: "",
+        address: "",
+        serviceType: "",
+        message: ""
+      });
+    } catch (err) {
+      console.log("Unexpected error:", err);
+
+      toast({
+        variant: "destructive",
+        title: "Could not send your request",
+        description: "Unexpected error occurred. Please try again."
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
-  return <>
+
+  return (
+    <>
       {/* Hero Section */}
       <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-primary">
         <div className="section-container text-center">
@@ -79,44 +142,93 @@ const ContactPage = () => {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="fullName">Full Name *</Label>
-                    <Input id="fullName" name="fullName" value={formData.fullName} onChange={handleInputChange} placeholder="John Smith" required />
+                    <Input
+                      id="fullName"
+                      name="fullName"
+                      value={formData.fullName}
+                      onChange={handleInputChange}
+                      placeholder="John Smith"
+                      required
+                    />
                   </div>
+
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone Number *</Label>
-                    <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleInputChange} placeholder="(555) 123-4567" required />
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      placeholder="(555) 123-4567"
+                      required
+                    />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="email">Email Address *</Label>
-                  <Input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} placeholder="john@example.com" required />
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="john@example.com"
+                    required
+                  />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="address">Property Address *</Label>
-                  <Input id="address" name="address" value={formData.address} onChange={handleInputChange} placeholder="123 Main St, City, State ZIP" required />
+                  <Input
+                    id="address"
+                    name="address"
+                    value={formData.address}
+                    onChange={handleInputChange}
+                    placeholder="123 Main St, City, State ZIP"
+                    required
+                  />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="serviceType">Type of Service Needed</Label>
-                  <Select value={formData.serviceType} onValueChange={handleSelectChange}>
+                  <Select
+                    value={formData.serviceType}
+                    onValueChange={handleSelectChange}
+                  >
                     <SelectTrigger>
                       <SelectValue placeholder="Select a service" />
                     </SelectTrigger>
                     <SelectContent>
-                      {serviceTypes.map(service => <SelectItem key={service} value={service}>
+                      {serviceTypes.map((service) => (
+                        <SelectItem key={service} value={service}>
                           {service}
-                        </SelectItem>)}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="message">Additional Details</Label>
-                  <Textarea id="message" name="message" value={formData.message} onChange={handleInputChange} placeholder="Tell us about your roofing needs, any visible damage, or questions you have..." rows={4} />
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Tell us about your roofing needs..."
+                    rows={4}
+                  />
                 </div>
 
-                <Button type="submit" variant="cta" size="xl" className="w-full" disabled={isSubmitting}>
+                <Button
+                  type="submit"
+                  variant="cta"
+                  size="xl"
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
                   {isSubmitting ? "Submitting..." : "Get My Free Estimate"}
                 </Button>
 
@@ -126,28 +238,41 @@ const ContactPage = () => {
               </form>
             </div>
 
-            {/* Contact Info */}
+            {/* Contact Info (UNCHANGED) */}
             <div>
               <div className="bg-secondary rounded-2xl p-8 lg:p-10 mb-8">
                 <h3 className="text-xl font-bold mb-6">Contact Information</h3>
+
                 <div className="space-y-4">
-                  <a href="tel:+15551234567" className="flex items-start gap-4 text-foreground hover:text-accent transition-colors">
+                  <a
+                    href="tel:+15551234567"
+                    className="flex items-start gap-4 text-foreground hover:text-accent transition-colors"
+                  >
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <Phone className="h-5 w-5 text-primary" />
                     </div>
                     <div>
                       <p className="font-semibold">(555) 123-4567</p>
-                      <p className="text-sm text-muted-foreground">Call us anytime</p>
+                      <p className="text-sm text-muted-foreground">
+                        Call us anytime
+                      </p>
                     </div>
                   </a>
 
-                  <a href="mailto:info@summitpeakroofing.com" className="flex items-start gap-4 text-foreground hover:text-accent transition-colors">
+                  <a
+                    href="mailto:info@summitpeakroofing.com"
+                    className="flex items-start gap-4 text-foreground hover:text-accent transition-colors"
+                  >
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <Mail className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-semibold">info@summitpeakroofing.com</p>
-                      <p className="text-sm text-muted-foreground">Email us anytime</p>
+                      <p className="font-semibold">
+                        info@summitpeakroofing.com
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        Email us anytime
+                      </p>
                     </div>
                   </a>
 
@@ -173,7 +298,9 @@ const ContactPage = () => {
                         Mon-Fri: 7am - 6pm<br />
                         Sat: 8am - 4pm<br />
                         Sun: Closed<br />
-                        <span className="text-accent font-medium">24/7 Emergency Service Available</span>
+                        <span className="text-accent font-medium">
+                          24/7 Emergency Service Available
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -181,23 +308,22 @@ const ContactPage = () => {
               </div>
 
               <div className="bg-primary rounded-2xl p-8 lg:p-10 text-primary-foreground">
-                <h3 className="text-xl font-bold mb-4 text-primary-foreground">What Happens Next?</h3>
+                <h3 className="text-xl font-bold mb-4">
+                  What Happens Next?
+                </h3>
+
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-gold mt-0.5 flex-shrink-0" />
-                    <span>We'll contact you within 24 hours to confirm your request</span>
+                    <CheckCircle className="h-5 w-5 text-gold mt-0.5" />
+                    We contact you within 24 hours
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-gold mt-0.5 flex-shrink-0" />
-                    <span>We'll schedule a convenient time for your free inspection</span>
+                    <CheckCircle className="h-5 w-5 text-gold mt-0.5" />
+                    We schedule your free inspection
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-gold mt-0.5 flex-shrink-0" />
-                    <span>You'll receive a detailed, no-obligation estimate</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-gold mt-0.5 flex-shrink-0" />
-                    <span>No pressure—just honest advice about your roofing needs</span>
+                    <CheckCircle className="h-5 w-5 text-gold mt-0.5" />
+                    You receive a detailed estimate
                   </li>
                 </ul>
               </div>
@@ -205,6 +331,8 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
-    </>;
+    </>
+  );
 };
+
 export default ContactPage;

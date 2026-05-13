@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Shield, Clock, Star, Wrench, Home, Search, CloudLightning, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-roofing.webp";
+import heroImage from "@/assets/hero-roofing.jpg";
 const HeroSection = () => {
   const trustBadges = [{
     icon: Shield,
@@ -19,7 +19,7 @@ const HeroSection = () => {
   return <section className="relative min-h-[90vh] flex items-center">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img src={heroImage} alt="Professional roofing team working on a residential home" width={1600} height={1013} fetchPriority="high" decoding="async" className="w-full h-full object-cover" />
+        <img src={heroImage} alt="New architectural shingle roof at golden hour with professional tools and mountain backdrop" width={1536} height={1024} fetchPriority="high" decoding="async" className="w-full h-full object-cover object-center" />
         <div className="absolute inset-0 hero-overlay opacity-50" />
       </div>
 
