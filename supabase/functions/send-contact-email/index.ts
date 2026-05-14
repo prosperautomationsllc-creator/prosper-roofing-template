@@ -32,6 +32,9 @@ Deno.serve(async (req) => {
       );
     }
 
+    // =========================
+    // EMAIL #1 → YOU (LEAD NOTIFICATION)
+    // =========================
     const emailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -112,8 +115,45 @@ Deno.serve(async (req) => {
 
     const result = await emailResponse.json();
 
+    // =========================
+    // EMAIL #2 → CUSTOMER CONFIRMATION (NEW)
+    // =========================
+    const customerEmailResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({
+        from: "onboarding@resend.dev",
+        to: body.email,
+        subject: "We received your message",
+
+        html: `
+          <div style="font-family: Arial, sans-serif; padding: 24px; color: #111;">
+            <h2>Thanks ${body.name}!</h2>
+
+            <p>
+              We received your message and will be in contact with you soon.
+            </p>
+
+            <p style="margin-top: 20px;">
+              — Summit Peak Roofing
+            </p>
+          </div>
+        `,
+      }),
+    });
+
+    const customerResult = await customerEmailResponse.json();
+
     return new Response(
-      JSON.stringify({ success: true, result }),
+      JSON.stringify({
+        success: true,
+        leadEmail: result,
+        customerEmail: customerResult,
+      }),
       {
         headers: { "Content-Type": "application/json" },
       }
