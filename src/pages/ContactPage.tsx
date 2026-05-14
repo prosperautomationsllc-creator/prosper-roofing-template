@@ -91,6 +91,29 @@ const ContactPage = () => {
         return;
       }
 
+      const emailResponse = await fetch(
+        "http://127.0.0.1:54321/functions/v1/send-contact-email",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.fullName,
+            email: formData.email,
+            phone: formData.phone,
+            address: formData.address,
+            serviceType: formData.serviceType,
+            message: formData.message,
+          }),
+        }
+      );
+      
+      const emailData = await emailResponse.json();
+      
+      console.log("EMAIL RESPONSE:", emailData);
+
+
       toast({
         title: "Request Submitted!",
         description:
