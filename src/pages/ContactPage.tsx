@@ -331,7 +331,7 @@ const ContactPage = () => {
               </div>
 
               <div className="bg-primary rounded-2xl p-8 lg:p-10 text-primary-foreground">
-                <h3 className="text-xl font-bold mb-4">
+                <h3 className="text-xl font-bold mb-4 text-white">
                   What Happens Next?
                 </h3>
 
