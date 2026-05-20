@@ -43,7 +43,7 @@ Deno.serve(async (req) => {
       },
 
       body: JSON.stringify({
-        from: "onboarding@resend.dev",
+        from: "Summit Peak Roofing <support@prosperautomations.com>",
         to: "prosperautomationsllc@gmail.com",
         subject: "New Contact Form Submission",
 
@@ -116,7 +116,7 @@ Deno.serve(async (req) => {
     const result = await emailResponse.json();
 
     // =========================
-    // EMAIL #2 → CUSTOMER CONFIRMATION (NEW)
+    // EMAIL #2 → CUSTOMER CONFIRMATION
     // =========================
     const customerEmailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -126,7 +126,7 @@ Deno.serve(async (req) => {
       },
 
       body: JSON.stringify({
-        from: "onboarding@resend.dev",
+        from: "Summit Peak Roofing <support@prosperautomations.com>",
         to: body.email,
         subject: "We received your message",
 
