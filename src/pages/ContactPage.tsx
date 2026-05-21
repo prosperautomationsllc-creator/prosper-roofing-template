@@ -84,7 +84,7 @@ const ContactPage = () => {
         return;
       }
 
-      // 2. SEND EMAIL VIA SUPABASE EDGE FUNCTION (FIXED)
+      // 2. SEND EMAIL VIA SUPABASE EDGE FUNCTION (FIXED + IMPROVED ERROR HANDLING)
       const { data, error: functionError } =
         await supabase.functions.invoke("send-contact-email", {
           body: {
@@ -97,13 +97,16 @@ const ContactPage = () => {
           },
         });
 
-      if (functionError) {
+      // 🔥 FIX: detect BOTH Supabase errors + internal function errors
+      if (functionError || data?.error) {
         console.log("Function error:", functionError);
+        console.log("Function data:", data);
 
         toast({
           variant: "destructive",
           title: "Request saved but email failed",
           description:
+            data?.error?.message ||
             "We received your submission, but confirmation email could not be sent.",
         });
 
@@ -113,7 +116,7 @@ const ContactPage = () => {
 
       console.log("Email function response:", data);
 
-      // 3. SUCCESS MESSAGE (UNCHANGED TEXT)
+      // 3. SUCCESS MESSAGE (UNCHANGED)
       toast({
         title: "Request Submitted!",
         description:
