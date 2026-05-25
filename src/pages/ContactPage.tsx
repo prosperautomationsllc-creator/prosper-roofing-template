@@ -119,11 +119,11 @@ const ContactPage = () => {
 
 
       trackEvent(
-        "Contact Form Submitted",
-        "Lead Generation",
-        formData.serviceType || "Unknown Service"
+        "contact_form_submitted",
+        "lead_generation",
+        formData.serviceType || "unknown_service"
       );
-
+      
       // 3. SUCCESS MESSAGE (UNCHANGED)
       toast({
         title: "Request Submitted!",
