@@ -278,10 +278,17 @@ const ContactPage = () => {
                 <h3 className="text-xl font-bold mb-6">Contact Information</h3>
 
                 <div className="space-y-4">
-                  <a
-                    href="tel:+15551234567"
-                    className="flex items-start gap-4 text-foreground hover:text-accent transition-colors"
-                  >
+                <a
+  href="tel:+15551234567"
+  onClick={() =>
+    trackEvent(
+      "phone_click",
+      "lead_generation",
+      "(555) 123-4567"
+    )
+  }
+  className="flex items-start gap-4 text-foreground hover:text-accent transition-colors"
+>
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <Phone className="h-5 w-5 text-primary" />
                     </div>
@@ -292,9 +299,16 @@ const ContactPage = () => {
                   </a>
 
                   <a
-                    href="mailto:info@summitpeakroofing.com"
-                    className="flex items-start gap-4 text-foreground hover:text-accent transition-colors"
-                  >
+  href="mailto:info@summitpeakroofing.com"
+  onClick={() =>
+    trackEvent(
+      "email_click",
+      "lead_generation",
+      "info@summitpeakroofing.com"
+    )
+  }
+  className="flex items-start gap-4 text-foreground hover:text-accent transition-colors"
+>
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <Mail className="h-5 w-5 text-primary" />
                     </div>
