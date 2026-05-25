@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Phone, Mail, MapPin, Clock, CheckCircle } from "lucide-react";
 import { supabase } from "@/lib/supabase";
+import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -115,6 +116,13 @@ const ContactPage = () => {
       }
 
       console.log("Email function response:", data);
+
+
+      trackEvent(
+        "Contact Form Submitted",
+        "Lead Generation",
+        formData.serviceType || "Unknown Service"
+      );
 
       // 3. SUCCESS MESSAGE (UNCHANGED)
       toast({
