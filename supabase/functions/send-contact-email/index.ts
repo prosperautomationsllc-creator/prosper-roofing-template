@@ -43,7 +43,7 @@ Deno.serve(async (req) => {
       },
 
       body: JSON.stringify({
-        from: "Your Roofing Company <noreply@example.com>",
+        from: `${Deno.env.get("COMPANY_NAME")} <${Deno.env.get("FROM_EMAIL")}>`,
         to: Deno.env.get("OWNER_EMAIL"),
         subject: "New Contact Form Submission",
 
@@ -126,7 +126,7 @@ Deno.serve(async (req) => {
       },
 
       body: JSON.stringify({
-        from: "Your Roofing Company <noreply@example.com>",
+        from: `${Deno.env.get("COMPANY_NAME")} <${Deno.env.get("FROM_EMAIL")}>`,
         to: body.email,
         subject: "We received your message",
 
@@ -139,7 +139,7 @@ Deno.serve(async (req) => {
             </p>
 
             <p style="margin-top: 20px;">
-              — Your Roofing Company
+            — ${Deno.env.get("COMPANY_NAME")}
             </p>
           </div>
         `,

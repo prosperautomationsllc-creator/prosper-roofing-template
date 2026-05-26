@@ -32,7 +32,7 @@ const Footer = () => {
     name: "Free Estimate",
     path: "/contact"
   }];
-  const serviceAreas = ["Metro City", "Riverside County", "Oak Valley", "Summit Heights", "Lakeside Township"];
+  const serviceAreas = siteConfig.serviceAreas;
   return <footer className="bg-primary text-primary-foreground">
       {/* Main Footer */}
       <div className="section-container py-12 lg:py-16">
@@ -99,8 +99,8 @@ const Footer = () => {
                 {siteConfig.phone}
               </a>
               <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                <Mail className="h-4 w-4 flex-shrink-0" />
-                owner@example.com
+              <Mail className="h-4 w-4 flex-shrink-0" />
+              {siteConfig.email}
               </a>
               <div className="flex items-start gap-3 text-sm text-primary-foreground/80">
                 <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5" />
