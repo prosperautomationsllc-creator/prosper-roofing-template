@@ -98,9 +98,9 @@ const Footer = () => {
                 <Phone className="h-4 w-4 flex-shrink-0" />
                 {siteConfig.phone}
               </a>
-              <a href="mailto:info@summitpeakroofing.com" className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+              <a href="mailto:owner@example.com" className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                 <Mail className="h-4 w-4 flex-shrink-0" />
-                info@summitpeakroofing.com
+                owner@example.com
               </a>
               <div className="flex items-start gap-3 text-sm text-primary-foreground/80">
                 <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5" />

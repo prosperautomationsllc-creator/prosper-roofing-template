@@ -43,8 +43,8 @@ Deno.serve(async (req) => {
       },
 
       body: JSON.stringify({
-        from: "Summit Peak Roofing <support@prosperautomations.com>",
-        to: "prosperautomationsllc@gmail.com",
+        from: "Your Roofing Company <support@prosperautomations.com>",
+        to: "owner@example.com",
         subject: "New Contact Form Submission",
 
         html: `
@@ -126,7 +126,7 @@ Deno.serve(async (req) => {
       },
 
       body: JSON.stringify({
-        from: "Summit Peak Roofing <support@prosperautomations.com>",
+        from: "Your Roofing Company <support@prosperautomations.com>",
         to: body.email,
         subject: "We received your message",
 
@@ -139,7 +139,7 @@ Deno.serve(async (req) => {
             </p>
 
             <p style="margin-top: 20px;">
-              — Summit Peak Roofing
+              — Your Roofing Company
             </p>
           </div>
         `,

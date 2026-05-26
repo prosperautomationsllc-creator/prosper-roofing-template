@@ -151,7 +151,7 @@ const WhyChooseUsSection = () => {
             </div>
           </div>
           <div className="relative">
-            <div className="rounded-2xl p-8 lg:p-12 text-primary-foreground bg-[sidebar-primary-foreground] bg-navy">
+          <div className="rounded-2xl p-8 lg:p-12 text-primary-foreground bg-navy">
               <h3 className="text-2xl font-bold mb-4 text-secondary">Ready to Get Started?</h3>
               <p className="text-primary-foreground/80 mb-6">
                 Schedule your free roofing inspection today and get an honest assessment of your roof's condition.

@@ -300,12 +300,12 @@ const ContactPage = () => {
                   </a>
 
                   <a
-  href="mailto:info@summitpeakroofing.com"
+  href="mailto:owner@example.com"
   onClick={() =>
     trackEvent(
       "email_click",
       "lead_generation",
-      "info@summitpeakroofing.com"
+      "owner@example.com"
     )
   }
   className="flex items-start gap-4 text-foreground hover:text-accent transition-colors"
@@ -314,7 +314,7 @@ const ContactPage = () => {
                       <Mail className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-semibold">info@summitpeakroofing.com</p>
+                      <p className="font-semibold">owner@example.com</p>
                       <p className="text-sm text-muted-foreground">Email us anytime</p>
                     </div>
                   </a>
