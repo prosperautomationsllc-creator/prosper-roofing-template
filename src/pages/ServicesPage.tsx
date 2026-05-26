@@ -47,8 +47,7 @@ const services = [
     id: "replacement",
     icon: RefreshCw,
     title: "Full Roof Replacements",
-    description: "When repairs aren't enough, trust Summit Peak for a complete roof replacement. We guide you through every step, from material selection to final inspection.",
-    features: [
+    description: `When repairs aren't enough, trust ${siteConfig.companyName} for a complete roof replacement. We guide you through every step, from material selection to final inspection.`,    features: [
       "Complete tear-off and disposal",
       "Premium underlayment installation",
       "Wide selection of roofing materials",

@@ -285,7 +285,7 @@ const ContactPage = () => {
     trackEvent(
       "phone_click",
       "lead_generation",
-      "{siteConfig.phone}"
+      siteConfig.phone
     )
   }
   className="flex items-start gap-4 text-foreground hover:text-accent transition-colors"
@@ -300,12 +300,12 @@ const ContactPage = () => {
                   </a>
 
                   <a
-  href="mailto:owner@example.com"
+  href={`mailto:${siteConfig.email}`}
   onClick={() =>
     trackEvent(
       "email_click",
       "lead_generation",
-      "owner@example.com"
+      siteConfig.email
     )
   }
   className="flex items-start gap-4 text-foreground hover:text-accent transition-colors"
@@ -326,7 +326,7 @@ const ContactPage = () => {
                     <div>
                       <p className="font-semibold">Service Area</p>
                       <p className="text-sm text-muted-foreground">
-                        Metro City • Riverside County • Oak Valley • Summit Heights • Lakeside Township
+                      {siteConfig.serviceAreas.join(" • ")}
                       </p>
                     </div>
                   </div>
@@ -338,13 +338,16 @@ const ContactPage = () => {
                     <div>
                       <p className="font-semibold">Business Hours</p>
                       <p className="text-sm text-muted-foreground">
-                        Mon-Fri: 7am - 6pm<br />
-                        Sat: 8am - 4pm<br />
-                        Sun: Closed<br />
-                        <span className="text-accent font-medium">
-                          24/7 Emergency Service Available
-                        </span>
-                      </p>
+  {siteConfig.businessHours.weekdays}
+  <br />
+  {siteConfig.businessHours.saturday}
+  <br />
+  {siteConfig.businessHours.sunday}
+  <br />
+  <span className="text-accent font-medium">
+    24/7 Emergency Service Available
+  </span>
+</p>
                     </div>
                   </div>
                 </div>

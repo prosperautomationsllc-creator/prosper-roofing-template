@@ -43,7 +43,7 @@ const Header = () => {
             </div>
             <div className="flex flex-col">
               <span className={`text-lg font-bold leading-tight transition-colors ${isScrolled ? 'text-foreground' : 'text-primary-foreground'}`}>
-                Summit Peak
+              {siteConfig.companyName}
               </span>
               <span className={`text-xs font-medium leading-tight transition-colors ${isScrolled ? 'text-muted-foreground' : 'text-primary-foreground/80'}`}>
                 Roofing

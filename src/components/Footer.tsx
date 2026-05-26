@@ -44,7 +44,7 @@ const Footer = () => {
                 <Mountain className="h-6 w-6 text-primary-foreground" />
               </div>
               <div className="flex flex-col">
-                <span className="text-lg font-bold leading-tight">Summit Peak</span>
+                <span className="text-lg font-bold leading-tight">{siteConfig.companyName}</span>
                 <span className="text-xs font-medium leading-tight text-primary-foreground/80">
                   Roofing
                 </span>
@@ -98,7 +98,7 @@ const Footer = () => {
                 <Phone className="h-4 w-4 flex-shrink-0" />
                 {siteConfig.phone}
               </a>
-              <a href="mailto:owner@example.com" className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+              <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                 <Mail className="h-4 w-4 flex-shrink-0" />
                 owner@example.com
               </a>

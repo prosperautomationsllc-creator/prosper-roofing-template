@@ -174,22 +174,19 @@ const WhyChooseUsSection = () => {
 const TestimonialsSection = () => {
   const testimonials = [{
     name: "Michael Thompson",
-    location: "Riverside County",
+    location: siteConfig.city,
     rating: 5,
-    text: "Summit Peak replaced our entire roof after storm damage. The crew was professional, punctual, and the quality of work was outstanding. They handled everything with our insurance company too."
-  }, {
+    text: `${siteConfig.companyName} replaced our entire roof after storm damage. The crew was professional, punctual, and the quality of work was outstanding. They handled everything with our insurance company too.`,  }, {
     name: "Sarah Mitchell",
-    location: "Oak Valley",
+    location: siteConfig.city,
     rating: 5,
-    text: "We had a persistent leak that two other companies couldn't fix. Summit Peak found the issue on their first inspection and repaired it the same week. Highly recommend!"
-  }, {
+    text: `We had a persistent leak that two other companies couldn't fix. ${siteConfig.companyName} found the issue on their first inspection and repaired it the same week. Highly recommend!`,  }, {
     name: "David Chen",
-    location: "Metro City",
+    location: siteConfig.city,
     rating: 5,
-    text: "From the initial estimate to final cleanup, everything was handled professionally. Fair pricing, no surprises, and our new roof looks incredible. Thank you Summit Peak!"
-  }, {
+    text: `From the initial estimate to final cleanup, everything was handled professionally. Fair pricing, no surprises, and our new roof looks incredible. Thank you ${siteConfig.companyName}!`,  }, {
     name: "Jennifer Martinez",
-    location: "Summit Heights",
+    location: siteConfig.city,
     rating: 5,
     text: "Best roofing experience we've ever had. The team was respectful of our property and finished ahead of schedule. The workmanship warranty gives us peace of mind."
   }];
@@ -200,7 +197,7 @@ const TestimonialsSection = () => {
             What Our Customers Say
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Don't just take our word for it—hear from homeowners who trust Summit Peak with their roofing needs.
+            Don't just take our word for it—hear from homeowners who trust {siteConfig.companyName} with their roofing needs.
           </p>
         </div>
 

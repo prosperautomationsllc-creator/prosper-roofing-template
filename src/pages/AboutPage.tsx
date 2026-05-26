@@ -73,10 +73,10 @@ const AboutPage = () => {
                 {siteConfig.companyName} was founded over a decade ago with a simple mission: provide honest, quality roofing services that homeowners can trust. What started as a small family operation has grown into one of the region's most respected roofing companies.
                 </p>
                 <p>
-                  Our founder began in the roofing industry working alongside his father, learning the trade from the ground up. Those early lessons in craftsmanship, integrity, and hard work remain at the core of everything we do today.
+                Add your company's story here.
                 </p>
                 <p>
-                  We've built our reputation one roof at a time, earning the trust of thousands of homeowners through quality work, fair pricing, and genuine care for our customers. When you choose Summit Peak, you're not just getting a contractor—you're getting a partner committed to protecting your home.
+                  We've built our reputation one roof at a time, earning the trust of thousands of homeowners through quality work, fair pricing, and genuine care for our customers. When you choose {siteConfig.companyName}, you're not just getting a contractor—you're getting a partner committed to protecting your home.
                 </p>
               </div>
             </div>
@@ -117,7 +117,7 @@ const AboutPage = () => {
       <section className="py-16 lg:py-24">
         <div className="section-container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Trust Summit Peak</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Trust {siteConfig.companyName}</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
