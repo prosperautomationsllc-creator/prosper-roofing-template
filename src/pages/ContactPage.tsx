@@ -14,6 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { siteConfig } from "@/config/site";
 
 const serviceTypes = [
   "Roof Repair",
@@ -279,12 +280,12 @@ const ContactPage = () => {
 
                 <div className="space-y-4">
                 <a
-  href="tel:+15551234567"
+  href={siteConfig.phoneHref}
   onClick={() =>
     trackEvent(
       "phone_click",
       "lead_generation",
-      "(555) 123-4567"
+      "{siteConfig.phone}"
     )
   }
   className="flex items-start gap-4 text-foreground hover:text-accent transition-colors"
@@ -293,7 +294,7 @@ const ContactPage = () => {
                       <Phone className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-semibold">(555) 123-4567</p>
+                      <p className="font-semibold">{siteConfig.phone}</p>
                       <p className="text-sm text-muted-foreground">Call us anytime</p>
                     </div>
                   </a>

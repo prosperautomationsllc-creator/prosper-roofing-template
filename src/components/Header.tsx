@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Phone, Menu, X, Mountain } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/config/site";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -69,9 +70,9 @@ const Header = () => {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
-            <a href="tel:+15551234567" className={`flex items-center gap-2 text-sm font-semibold transition-colors ${isScrolled ? 'text-foreground' : 'text-primary-foreground'}`}>
+            <a href={siteConfig.phoneHref} className={`flex items-center gap-2 text-sm font-semibold transition-colors ${isScrolled ? 'text-foreground' : 'text-primary-foreground'}`}>
               <Phone className="h-4 w-4" />
-              (555) 123-4567
+              {siteConfig.phone}
             </a>
             <Button variant="nav" size="lg" asChild>
               <Link to="/contact">Free Estimate</Link>

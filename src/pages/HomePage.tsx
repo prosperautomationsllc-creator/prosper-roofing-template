@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Shield, Clock, Star, Wrench, Home, Search, CloudLightning, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-roofing.jpg";
+import { siteConfig } from "@/config/site";
 const HeroSection = () => {
   const trustBadges = [{
     icon: Shield,
@@ -46,7 +47,7 @@ const HeroSection = () => {
               </Link>
             </Button>
             <Button variant="hero-outline" size="2xl" asChild>
-              <a href="tel:+15551234567">Call (555) 123-4567</a>
+              <a href={siteConfig.phoneHref}>Call {siteConfig.phone}</a>
             </Button>
           </div>
 
@@ -134,7 +135,7 @@ const WhyChooseUsSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl lg:text-display-sm font-bold mb-6">
-              Why Homeowners Choose Summit Peak Roofing
+              Why Homeowners Choose {siteConfig.companyName}
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
               We're not just roofers—we're your neighbors. Our commitment to quality, honesty, and customer satisfaction has made us the area's most trusted roofing company.

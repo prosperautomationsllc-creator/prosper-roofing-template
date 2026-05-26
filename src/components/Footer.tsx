@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Mountain, Facebook, Instagram, Linkedin } from "lucide-react";
+import { siteConfig } from "@/config/site";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const services = [{
@@ -93,9 +94,9 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-lg mb-4 text-primary-foreground">Contact Us</h4>
             <div className="space-y-3 mb-6">
-              <a href="tel:+15551234567" className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+              <a href={siteConfig.phoneHref} className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                 <Phone className="h-4 w-4 flex-shrink-0" />
-                (555) 123-4567
+                {siteConfig.phone}
               </a>
               <a href="mailto:info@summitpeakroofing.com" className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                 <Mail className="h-4 w-4 flex-shrink-0" />
@@ -118,7 +119,7 @@ const Footer = () => {
       <div className="border-t border-primary-foreground/10">
         <div className="section-container py-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary-foreground/70">
-            <p>© {currentYear} Summit Peak Roofing. All rights reserved.</p>
+            <p>© {currentYear} {siteConfig.companyName}. All rights reserved.</p>
             <p>Licensed & Insured | Workmanship Warranty</p>
           </div>
         </div>

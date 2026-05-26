@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Shield, Award, Users, Heart, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/config/site";
 
 const values = [
   {
@@ -42,7 +43,7 @@ const AboutPage = () => {
             Built on Trust. Focused on Quality.
           </h1>
           <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto">
-            Summit Peak Roofing is more than a roofing company—we're your neighbors, dedicated to protecting the homes and businesses in our community.
+          {siteConfig.companyName} is more than a roofing company—we're your neighbors, dedicated to protecting the homes and businesses in our community.
           </p>
         </div>
       </section>
@@ -69,7 +70,7 @@ const AboutPage = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Story</h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Summit Peak Roofing was founded over a decade ago with a simple mission: provide honest, quality roofing services that homeowners can trust. What started as a small family operation has grown into one of the region's most respected roofing companies.
+                {siteConfig.companyName} was founded over a decade ago with a simple mission: provide honest, quality roofing services that homeowners can trust. What started as a small family operation has grown into one of the region's most respected roofing companies.
                 </p>
                 <p>
                   Our founder began in the roofing industry working alongside his father, learning the trade from the ground up. Those early lessons in craftsmanship, integrity, and hard work remain at the core of everything we do today.

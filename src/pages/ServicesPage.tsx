@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Home, Building2, Wrench, RefreshCw, CloudLightning, Shield, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/config/site";
 
 const services = [
   {
@@ -93,7 +94,7 @@ const ServicesPage = () => {
             Professional Roofing Services You Can Count On
           </h1>
           <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto">
-            From routine repairs to complete replacements, Summit Peak Roofing delivers quality workmanship backed by years of experience and industry-leading warranties.
+            From routine repairs to complete replacements, {siteConfig.companyName} delivers quality workmanship backed by years of experience and industry-leading warranties.
           </p>
         </div>
       </section>
