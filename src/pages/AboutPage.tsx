@@ -27,10 +27,22 @@ const values = [
 ];
 
 const stats = [
-  { number: "10+", label: "Years in Business" },
-  { number: "1,500+", label: "Roofs Completed" },
-  { number: "5.0", label: "Star Rating" },
-  { number: "100%", label: "Satisfaction Guarantee" },
+  {
+    number: siteConfig.stats.yearsInBusiness,
+    label: "Years in Business",
+  },
+  {
+    number: siteConfig.stats.projectsCompleted,
+    label: "Roofs Completed",
+  },
+  {
+    number: siteConfig.stats.rating,
+    label: "Star Rating",
+  },
+  {
+    number: siteConfig.stats.satisfactionGuarantee,
+    label: "Satisfaction Guarantee",
+  },
 ];
 
 const AboutPage = () => {
