@@ -2,6 +2,8 @@ export const siteConfig = {
   companyName: "Your Roofing Company",
   shortName: "Your Company",
 
+  industryLabel: "Premium Roofing Services",
+
   phone: "(000) 000-0000",
   phoneHref: "tel:+10000000000",
 

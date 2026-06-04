@@ -46,7 +46,7 @@ const Footer = () => {
               <div className="flex flex-col">
                 <span className="text-lg font-bold leading-tight">{siteConfig.companyName}</span>
                 <span className="text-xs font-medium leading-tight text-primary-foreground/80">
-                  Roofing
+                <p>{siteConfig.industryLabel}</p>
                 </span>
               </div>
             </Link>

@@ -314,7 +314,7 @@ const ContactPage = () => {
                       <Mail className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-semibold">owner@example.com</p>
+                    <p className="font-semibold">{siteConfig.email}</p>
                       <p className="text-sm text-muted-foreground">Email us anytime</p>
                     </div>
                   </a>

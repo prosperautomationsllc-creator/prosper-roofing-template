@@ -46,7 +46,7 @@ const Header = () => {
               {siteConfig.companyName}
               </span>
               <span className={`text-xs font-medium leading-tight transition-colors ${isScrolled ? 'text-muted-foreground' : 'text-primary-foreground/80'}`}>
-                Roofing
+              <p>{siteConfig.industryLabel}</p>
               </span>
             </div>
           </Link>
