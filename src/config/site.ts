@@ -5,7 +5,7 @@ export const siteConfig = {
   phone: "(000) 000-0000",
   phoneHref: "tel:+10000000000",
 
-  email: "owner@example.com",
+  email: "prosperautomationsllc@gmail.com",
 
   domain: "yourdomain.com",
 
