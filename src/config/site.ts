@@ -18,6 +18,12 @@ export const siteConfig = {
 
   emergencyService: true,
 
+  socials: {
+    facebook: "https://facebook.com/titanroofing",
+    instagram: "https://instagram.com/titanroofing",
+    linkedin: "https://linkedin.com/company/titanroofing",
+  },
+
   serviceAreas: [
     "City One",
     "City Two",
