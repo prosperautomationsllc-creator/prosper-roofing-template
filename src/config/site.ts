@@ -1,7 +1,6 @@
 export const siteConfig = {
   companyName: "Your Roofing Company",
   shortName: "Your Company",
-
   industryLabel: "Premium Roofing Services",
 
   phone: "(000) 000-0000",
@@ -13,7 +12,6 @@ export const siteConfig = {
 
   city: "Omaha",
   state: "NE",
-
   address: "123 Main Street",
 
   emergencyService: true,
@@ -21,7 +19,7 @@ export const siteConfig = {
   socials: {
     facebook: "https://facebook.com/titanroofing",
     instagram: "https://instagram.com/titanroofing",
-    linkedin: "https://linkedin.com/company/titanroofing",
+    linkedin: "",
   },
 
   serviceAreas: [
@@ -35,6 +33,12 @@ export const siteConfig = {
     projectsCompleted: "1000+",
     rating: "5.0",
     satisfactionGuarantee: "100%",
+  },
+
+  seo: {
+    title: "",
+    description: "",
+    keywords: "",
   },
 
   businessHours: {

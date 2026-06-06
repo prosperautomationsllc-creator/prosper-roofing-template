@@ -51,20 +51,50 @@ const Footer = () => {
               </div>
             </Link>
             <p className="text-primary-foreground/80 text-sm mb-6 leading-relaxed">
-              Your trusted local roofing experts. Licensed, insured, and committed to quality craftsmanship on every project.
-            </p>
-            <div className="flex gap-4">
-              <a href="#" className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors" aria-label="Facebook">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors" aria-label="Instagram">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors" aria-label="LinkedIn">
-                <Linkedin className="h-5 w-5" />
-              </a>
-            </div>
-          </div>
+  Your trusted local roofing experts. Licensed, insured, and committed to quality craftsmanship on every project.
+</p>
+
+<div className="flex gap-4">
+  {siteConfig.socials.facebook && (
+    <a
+      href={siteConfig.socials.facebook}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
+      aria-label="Facebook"
+    >
+      <Facebook className="h-5 w-5" />
+    </a>
+  )}
+
+  {siteConfig.socials.instagram && (
+    <a
+      href={siteConfig.socials.instagram}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
+      aria-label="Instagram"
+    >
+      <Instagram className="h-5 w-5" />
+    </a>
+  )}
+
+  {siteConfig.socials.linkedin && (
+    <a
+      href={siteConfig.socials.linkedin}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
+      aria-label="LinkedIn"
+    >
+      <Linkedin className="h-5 w-5" />
+    </a>
+  )}
+</div>
+
+</div>
+
+
 
           {/* Services */}
           <div>
