@@ -35,6 +35,22 @@ export const siteConfig = {
     satisfactionGuarantee: "100%",
   },
 
+  // UPDATE IMAGES
+
+  logo: "/logo.png",
+
+  favicon: "/favicon.ico",
+
+  heroImage: "/images/hero.jpg",
+
+  aboutImage: "/images/about.jpg",
+
+  serviceImages: {
+    repair: "/images/service-repair.jpg",
+    replacement: "/images/service-replacement.jpg",
+    storm: "/images/service-storm.jpg",
+  },
+
   seo: {
     title: "",
     description: "",
