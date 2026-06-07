@@ -178,4 +178,199 @@ export const siteConfig = {
     subheading: "Ready to protect your home with quality roofing? Contact us today for a free, no-obligation estimate.",
     cta: "Request Your Free Estimate",
   },
+
+// ============================================
+  // ABOUT PAGE COPY
+  // ============================================
+  about: {
+    hero: {
+      headline: "Built on Trust. Focused on Quality.",
+      subheadline: "We're more than a roofing company—we're your neighbors, dedicated to protecting the homes and businesses in our community.",
+    },
+    story: {
+      heading: "Our Story",
+      paragraphs: [
+        "Founded over a decade ago with a simple mission: provide honest, quality roofing services that homeowners can trust. What started as a small family operation has grown into one of the region's most respected roofing companies.",
+        "Add your company's story here.",
+        "We've built our reputation one roof at a time, earning the trust of thousands of homeowners through quality work, fair pricing, and genuine care for our customers. When you choose us, you're not just getting a contractor—you're getting a partner committed to protecting your home.",
+      ],
+    },
+    values: [
+      {
+        icon: "Heart",
+        title: "Customer-First Mindset",
+        description: "Every decision we make starts with what's best for our customers. We treat your home like it's our own.",
+      },
+      {
+        icon: "Award",
+        title: "Quality Craftsmanship",
+        description: "We never cut corners. Every project is completed to the highest standards using premium materials.",
+      },
+      {
+        icon: "Users",
+        title: "Community Focus",
+        description: "As a local, family-owned business, we're invested in our community's homes and neighborhoods.",
+      },
+      {
+        icon: "Shield",
+        title: "Integrity & Honesty",
+        description: "Transparent pricing, honest recommendations, and no high-pressure sales tactics. Ever.",
+      },
+    ],
+    valuesSection: {
+      heading: "Our Values",
+      subheading: "These principles guide every project we take on and every interaction with our customers.",
+    },
+    trustSection: {
+      heading: "Why Trust Us",
+      items: [
+        {
+          icon: "Shield",
+          title: "Licensed & Insured",
+          description: "Fully licensed and insured for your protection. We carry comprehensive liability and workers' compensation coverage.",
+        },
+        {
+          icon: "Award",
+          title: "Warranty-Backed Work",
+          description: "Our workmanship warranty gives you peace of mind. We stand behind every project with comprehensive coverage.",
+        },
+        {
+          icon: "Users",
+          title: "Serving Local Communities",
+          description: "We're proud to serve homeowners throughout the region. Our team knows local building codes and weather challenges.",
+        },
+      ],
+    },
+    cta: {
+      heading: "Schedule a Free Roofing Inspection",
+      subheading: "Let our experts assess your roof's condition and provide honest recommendations—no obligation, no pressure.",
+      cta: "Schedule Your Inspection",
+    },
+  },
+
+  // ============================================
+  // SERVICES PAGE COPY
+  // ============================================
+  servicesPage: {
+    hero: {
+      headline: "Professional Roofing Services You Can Count On",
+      subheadline: "From routine repairs to complete replacements, we deliver quality workmanship backed by years of experience and industry-leading warranties.",
+    },
+    cta: {
+      heading: "Ready to Get Started?",
+      subheading: "Contact us today for a free, no-obligation estimate on any of our roofing services.",
+      cta: "Request Your Free Estimate",
+    },
+    items: [
+      {
+        id: "residential",
+        icon: "Home",
+        title: "Residential Roofing",
+        description: "Your home deserves the best protection. We specialize in all types of residential roofing systems, from traditional asphalt shingles to premium metal roofing.",
+        features: [
+          "Complete roof installations for new construction",
+          "Re-roofing and overlay services",
+          "Premium shingle, tile, and metal options",
+          "Energy-efficient roofing solutions",
+          "Full manufacturer warranties",
+        ],
+      },
+      {
+        id: "commercial",
+        icon: "Building2",
+        title: "Commercial Roofing",
+        description: "Protect your business investment with a commercial roofing system built to last. We work with businesses of all sizes to provide durable, cost-effective solutions.",
+        features: [
+          "Flat roof systems (TPO, EPDM, PVC)",
+          "Metal roofing for commercial buildings",
+          "Regular maintenance programs",
+          "Minimal disruption to your operations",
+          "Commercial warranty options",
+        ],
+      },
+      {
+        id: "repair",
+        icon: "Wrench",
+        title: "Roof Repairs",
+        description: "From minor leaks to significant damage, our skilled team diagnoses and fixes roof problems quickly and effectively. We repair it right the first time.",
+        features: [
+          "Leak detection and repair",
+          "Shingle and tile replacement",
+          "Flashing and vent repairs",
+          "Gutter and downspout repairs",
+          "Emergency repair services",
+        ],
+      },
+      {
+        id: "replacement",
+        icon: "RefreshCw",
+        title: "Full Roof Replacements",
+        description: "When repairs aren't enough, trust us for a complete roof replacement. We guide you through every step, from material selection to final inspection.",
+        features: [
+          "Complete tear-off and disposal",
+          "Premium underlayment installation",
+          "Wide selection of roofing materials",
+          "Proper ventilation assessment",
+          "Full workmanship warranty",
+        ],
+      },
+      {
+        id: "storm-damage",
+        icon: "CloudLightning",
+        title: "Storm Damage & Insurance Assistance",
+        description: "Storms happen—we're here to help. Our team works directly with insurance companies to streamline the claims process and restore your roof quickly.",
+        features: [
+          "24/7 emergency response",
+          "Free storm damage inspections",
+          "Insurance claim documentation",
+          "Direct communication with adjusters",
+          "Temporary protective measures",
+        ],
+      },
+      {
+        id: "inspections",
+        icon: "Shield",
+        title: "Preventative Maintenance & Inspections",
+        description: "Regular inspections catch small issues before they become costly repairs. Our maintenance programs extend the life of your roof and protect your investment.",
+        features: [
+          "Comprehensive roof inspections",
+          "Detailed written reports",
+          "Photo documentation",
+          "Maintenance recommendations",
+          "Annual maintenance programs",
+        ],
+      },
+    ],
+  },
+
+  // ============================================
+  // CONTACT PAGE COPY
+  // ============================================
+  contactPage: {
+    hero: {
+      headline: "Request a Free Estimate",
+      subheadline: "Fill out the form below and we'll get back to you within 24 hours to schedule your free, no-obligation estimate.",
+    },
+    serviceTypes: [
+      "Roof Repair",
+      "Roof Replacement",
+      "Roof Inspection",
+      "Storm Damage Assessment",
+      "Commercial Roofing",
+      "Preventative Maintenance",
+      "Other",
+    ],
+    form: {
+      submitButton: "Get My Free Estimate",
+      disclaimer: "No pressure. No obligation. Just honest roofing advice.",
+    },
+    whatHappensNext: [
+      "We'll contact you within 24 hours to confirm your request",
+      "We'll schedule a convenient time for your free inspection",
+      "You'll receive a detailed, no-obligation estimate",
+      "No pressure—just honest advice about your roofing needs",
+    ],
+  },
+
+
 };

@@ -16,17 +16,8 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { siteConfig } from "@/config/site";
 
-const serviceTypes = [
-  "Roof Repair",
-  "Roof Replacement",
-  "Roof Inspection",
-  "Storm Damage Assessment",
-  "Commercial Roofing",
-  "Preventative Maintenance",
-  "Other",
-];
-
 const ContactPage = () => {
+  const { contactPage } = siteConfig;
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -118,13 +109,12 @@ const ContactPage = () => {
 
       console.log("Email function response:", data);
 
-
       trackEvent(
         "contact_form_submitted",
         "lead_generation",
         formData.serviceType || "unknown_service"
       );
-      
+
       // 3. SUCCESS MESSAGE (UNCHANGED)
       toast({
         title: "Request Submitted!",
@@ -160,10 +150,10 @@ const ContactPage = () => {
       <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-primary">
         <div className="section-container text-center">
           <h1 className="text-4xl md:text-5xl lg:text-display-md font-bold text-primary-foreground mb-6">
-            Request a Free Roofing Estimate
+            {contactPage.hero.headline}
           </h1>
           <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto">
-            Fill out the form below and we'll get back to you within 24 hours to schedule your free, no-obligation estimate.
+            {contactPage.hero.subheadline}
           </p>
         </div>
       </section>
@@ -236,7 +226,7 @@ const ContactPage = () => {
                       <SelectValue placeholder="Select a service" />
                     </SelectTrigger>
                     <SelectContent>
-                      {serviceTypes.map((service) => (
+                      {contactPage.serviceTypes.map((service) => (
                         <SelectItem key={service} value={service}>
                           {service}
                         </SelectItem>
@@ -264,32 +254,32 @@ const ContactPage = () => {
                   className="w-full"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Submitting..." : "Get My Free Estimate"}
+                  {isSubmitting ? "Submitting..." : contactPage.form.submitButton}
                 </Button>
 
                 <p className="text-sm text-muted-foreground text-center">
-                  No pressure. No obligation. Just honest roofing advice.
+                  {contactPage.form.disclaimer}
                 </p>
               </form>
             </div>
 
-            {/* Contact Info (UNCHANGED EXACTLY) */}
+            {/* Contact Info */}
             <div>
               <div className="bg-secondary rounded-2xl p-8 lg:p-10 mb-8">
                 <h3 className="text-xl font-bold mb-6">Contact Information</h3>
 
                 <div className="space-y-4">
-                <a
-  href={siteConfig.phoneHref}
-  onClick={() =>
-    trackEvent(
-      "phone_click",
-      "lead_generation",
-      siteConfig.phone
-    )
-  }
-  className="flex items-start gap-4 text-foreground hover:text-accent transition-colors"
->
+                  <a
+                    href={siteConfig.phoneHref}
+                    onClick={() =>
+                      trackEvent(
+                        "phone_click",
+                        "lead_generation",
+                        siteConfig.phone
+                      )
+                    }
+                    className="flex items-start gap-4 text-foreground hover:text-accent transition-colors"
+                  >
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <Phone className="h-5 w-5 text-primary" />
                     </div>
@@ -300,21 +290,21 @@ const ContactPage = () => {
                   </a>
 
                   <a
-  href={`mailto:${siteConfig.email}`}
-  onClick={() =>
-    trackEvent(
-      "email_click",
-      "lead_generation",
-      siteConfig.email
-    )
-  }
-  className="flex items-start gap-4 text-foreground hover:text-accent transition-colors"
->
+                    href={`mailto:${siteConfig.email}`}
+                    onClick={() =>
+                      trackEvent(
+                        "email_click",
+                        "lead_generation",
+                        siteConfig.email
+                      )
+                    }
+                    className="flex items-start gap-4 text-foreground hover:text-accent transition-colors"
+                  >
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <Mail className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                    <p className="font-semibold">{siteConfig.email}</p>
+                      <p className="font-semibold">{siteConfig.email}</p>
                       <p className="text-sm text-muted-foreground">Email us anytime</p>
                     </div>
                   </a>
@@ -326,7 +316,7 @@ const ContactPage = () => {
                     <div>
                       <p className="font-semibold">Service Area</p>
                       <p className="text-sm text-muted-foreground">
-                      {siteConfig.serviceAreas.join(" • ")}
+                        {siteConfig.serviceAreas.join(" • ")}
                       </p>
                     </div>
                   </div>
@@ -338,16 +328,16 @@ const ContactPage = () => {
                     <div>
                       <p className="font-semibold">Business Hours</p>
                       <p className="text-sm text-muted-foreground">
-  {siteConfig.businessHours.weekdays}
-  <br />
-  {siteConfig.businessHours.saturday}
-  <br />
-  {siteConfig.businessHours.sunday}
-  <br />
-  <span className="text-accent font-medium">
-    24/7 Emergency Service Available
-  </span>
-</p>
+                        {siteConfig.businessHours.weekdays}
+                        <br />
+                        {siteConfig.businessHours.saturday}
+                        <br />
+                        {siteConfig.businessHours.sunday}
+                        <br />
+                        <span className="text-accent font-medium">
+                          24/7 Emergency Service Available
+                        </span>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -359,22 +349,12 @@ const ContactPage = () => {
                 </h3>
 
                 <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-gold mt-0.5 flex-shrink-0" />
-                    <span>We'll contact you within 24 hours to confirm your request</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-gold mt-0.5 flex-shrink-0" />
-                    <span>We'll schedule a convenient time for your free inspection</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-gold mt-0.5 flex-shrink-0" />
-                    <span>You'll receive a detailed, no-obligation estimate</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-gold mt-0.5 flex-shrink-0" />
-                    <span>No pressure—just honest advice about your roofing needs</span>
-                  </li>
+                  {contactPage.whatHappensNext.map((step) => (
+                    <li key={step} className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-gold mt-0.5 flex-shrink-0" />
+                      <span>{step}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
