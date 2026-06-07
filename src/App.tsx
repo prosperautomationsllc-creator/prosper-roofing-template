@@ -7,6 +7,8 @@ import { lazy, Suspense } from "react";
 import Layout from "./components/Layout";
 import HomePage from "./pages/HomePage";
 import ScrollToTop from "@/components/ScrollToTop";
+import { applyTheme } from "@/lib/applyTheme";
+applyTheme();
 
 const ServicesPage = lazy(() => import("./pages/ServicesPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
