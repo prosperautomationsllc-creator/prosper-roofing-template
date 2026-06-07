@@ -6,7 +6,7 @@ export const siteConfig = {
   phone: "(000) 000-0000",
   phoneHref: "tel:+10000000000",
 
-  email: "prosperautomationsllc@gmail.com",
+  email: "support@yourroofingcompany.com",
 
   domain: "yourdomain.com",
 
@@ -17,8 +17,8 @@ export const siteConfig = {
   emergencyService: true,
 
   socials: {
-    facebook: "https://facebook.com/titanroofing",
-    instagram: "https://instagram.com/titanroofing",
+    facebook: "...",
+    instagram: "...",
     linkedin: "",
   },
 
