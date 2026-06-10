@@ -44,7 +44,7 @@ const Header = () => {
       <div className="section-container">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
+          <Link to="/" onClick={handleNavClick("/")} className="flex items-center gap-2 group">
             <div className={`p-2 rounded-lg transition-colors ${isScrolled ? 'bg-primary' : 'bg-primary-foreground/20'}`}>
               <Mountain className={`h-6 w-6 ${isScrolled ? 'text-primary-foreground' : 'text-primary-foreground'}`} />
             </div>
