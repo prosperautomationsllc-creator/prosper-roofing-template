@@ -109,7 +109,7 @@ const ServicesSection = () => {
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                   {service.description}
                 </p>
-                <Link to="/services"
+                <Link to={`/services#${service.id}`}
                   className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:gap-2 transition-all">
                   Learn More <ArrowRight className="h-4 w-4" />
                 </Link>

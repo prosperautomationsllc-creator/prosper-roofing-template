@@ -97,21 +97,25 @@ export const siteConfig = {
 
   services: [
     {
+      id: "repair",
       title: "Roof Repair",
       description: "Fast, reliable repairs for leaks, damaged shingles, and storm damage. We fix it right the first time.",
       icon: "Wrench",
     },
     {
+      id: "replacement",
       title: "Roof Replacement",
       description: "Complete roof replacement with premium materials and expert installation backed by warranty.",
       icon: "Home",
     },
     {
+      id: "inspections",
       title: "Roof Inspections",
       description: "Comprehensive inspections to identify issues before they become costly problems.",
       icon: "Search",
     },
     {
+      id: "storm-damage",
       title: "Storm Damage",
       description: "Emergency storm damage repair and full insurance claim assistance to get your roof restored.",
       icon: "CloudLightning",
