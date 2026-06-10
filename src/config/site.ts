@@ -68,6 +68,7 @@ export const siteConfig = {
     title: "",
     description: "",
     keywords: "",
+    ogImage: "",
   },
 
   // ============================================
