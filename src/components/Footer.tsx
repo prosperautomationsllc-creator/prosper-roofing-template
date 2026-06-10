@@ -3,22 +3,13 @@ import { Phone, Mail, MapPin, Mountain, Facebook, Instagram, Linkedin } from "lu
 import { siteConfig } from "@/config/site";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const services = [{
-    name: "Roof Repair",
-    path: "/services#repair"
-  }, {
-    name: "Roof Replacement",
-    path: "/services#replacement"
-  }, {
-    name: "Roof Inspections",
-    path: "/services#inspections"
-  }, {
-    name: "Storm Damage",
-    path: "/services#storm-damage"
-  }, {
-    name: "Commercial Roofing",
-    path: "/services#commercial"
-  }];
+  const services = [
+    { name: "Roof Repair", id: "repair" },
+    { name: "Roof Replacement", id: "replacement" },
+    { name: "Roof Inspections", id: "inspections" },
+    { name: "Storm Damage", id: "storm-damage" },
+    { name: "Commercial Roofing", id: "commercial" },
+  ];
   const company = [{
     name: "About Us",
     path: "/about"
@@ -100,11 +91,16 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-lg mb-4 text-primary-foreground">Services</h4>
             <ul className="space-y-2">
-              {services.map(service => <li key={service.name}>
-                  <Link to={service.path} className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
+              {services.map((service) => (
+                <li key={service.id}>
+                  <Link
+                    to={`/services#${service.id}`}
+                    className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
+                  >
                     {service.name}
                   </Link>
-                </li>)}
+                </li>
+              ))}
             </ul>
           </div>
 

@@ -37,7 +37,7 @@ const ServicesPage = () => {
                 <div
                   key={service.id}
                   id={service.id}
-                  className={`grid lg:grid-cols-2 gap-8 lg:gap-16 items-center ${
+                  className={`grid lg:grid-cols-2 gap-8 lg:gap-16 items-center scroll-mt-24 lg:scroll-mt-28 ${
                     index % 2 === 1 ? "lg:flex-row-reverse" : ""
                   }`}
                 >
