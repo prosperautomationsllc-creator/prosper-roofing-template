@@ -21,7 +21,7 @@ const Footer = () => {
     path: "/contact"
   }, {
     name: "Free Estimate",
-    path: "/contact"
+    path: "/contact#form"
   }];
   const serviceAreas = siteConfig.serviceAreas;
   return <footer className="bg-primary text-primary-foreground">

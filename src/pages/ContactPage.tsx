@@ -160,7 +160,7 @@ const ContactPage = () => {
 
       {/* Contact Form Section */}
       <section className="py-16 lg:py-24">
-        <div className="section-container">
+        <div id="form" className="section-container">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Form */}
             <div>
