@@ -26,6 +26,13 @@ const Header = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
+  const handleNavClick = (path: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (location.pathname === path) {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -57,6 +64,7 @@ const Header = () => {
               <Link
                 key={link.path}
                 to={link.path}
+                onClick={handleNavClick(link.path)}
                 className={`text-sm font-medium transition-colors hover:text-accent ${
                   isActive(link.path)
                     ? isScrolled ? "text-accent" : "text-primary-foreground"
@@ -101,7 +109,10 @@ const Header = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(event) => {
+                    handleNavClick(link.path)(event);
+                    setIsMobileMenuOpen(false);
+                  }}
                   className={`text-base font-medium px-4 py-2 transition-colors ${
                     isActive(link.path) ? "text-accent bg-accent/10" : "text-foreground hover:text-accent"
                   }`}
