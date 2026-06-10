@@ -122,7 +122,9 @@ const Header = () => {
               ))}
               <div className="px-4 pt-4 border-t border-border">
                 <Button variant="cta" size="lg" className="w-full" asChild>
-                  <Link to="/contact">Get Free Estimate</Link>
+                  <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                    Get Free Estimate
+                  </Link>
                 </Button>
               </div>
             </nav>
