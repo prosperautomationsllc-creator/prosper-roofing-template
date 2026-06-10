@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import {
   Home, Building2, Wrench, RefreshCw,
   CloudLightning, Shield, CheckCircle, ArrowRight
@@ -12,6 +13,19 @@ const iconMap: Record<string, React.ElementType> = {
 
 const ServicesPage = () => {
   const { servicesPage } = siteConfig;
+  const location = useLocation();
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash) return;
+
+    const timeoutId = setTimeout(() => {
+      const element = document.getElementById(hash.slice(1));
+      element?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+
+    return () => clearTimeout(timeoutId);
+  }, [location.hash]);
 
   return (
     <>
